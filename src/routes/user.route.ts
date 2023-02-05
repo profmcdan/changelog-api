@@ -1,8 +1,9 @@
 import {Router} from 'express';
+import {protectRoute} from "../modules/auth";
 
 const userRouter = Router();
 
-userRouter.get('/', (req, res) => {
+userRouter.get('/', protectRoute, (req, res) => {
     res.send({success: true, data: []});
 });
 

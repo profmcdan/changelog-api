@@ -1,8 +1,9 @@
 "use strict";
 exports.__esModule = true;
 var express_1 = require("express");
+var auth_1 = require("../modules/auth");
 var userRouter = (0, express_1.Router)();
-userRouter.get('/', function (req, res) {
+userRouter.get('/', auth_1.protectRoute, function (req, res) {
     res.send({ success: true, data: [] });
 });
 userRouter.get('/:id', function (req, res) {
