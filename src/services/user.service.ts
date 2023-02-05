@@ -19,9 +19,12 @@ export const signIn = async (req, res) => {
             email: req.body.email.toLowerCase().trim()
         }
     });
-    if(user){
-        const isPasswordValid = comparePassword(req.body.password, user.password);
-        if(isPasswordValid){
+
+    console.log(user);
+
+    if(user !== null){
+        const isValid = await comparePassword(req.body.password, user.password);
+        if(isValid){
             res.send({success: true, data: {accessToken: createJwt(user)}})
             return;
         }

@@ -7,12 +7,12 @@ export const createJwt = (user) => {
     return jwt.sign({id: user.id, email: user.email}, appEnv.jwtSecret);
 }
 
-export const hashPassword = (password) => {
-    return bcrypt.hash(password, 5);
+export const hashPassword = async (password) => {
+    return await bcrypt.hash(password, 5);
 }
 
-export const comparePassword = (password, hashedPassword) => {
-    return bcrypt.compare(password, hashedPassword);
+export const comparePassword = async (password, hashedPassword) => {
+    return comparePassword(password, hashedPassword)
 }
 
 export const protectRoute = (req, res, next) => {

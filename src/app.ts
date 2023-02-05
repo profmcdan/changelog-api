@@ -4,7 +4,6 @@ import cors from 'cors';
 
 import {authRouter, productRouter, updateRouter, userRouter} from "./routes";
 import {customMiddleware} from "./middleware";
-import bodyParser from "body-parser";
 
 const app = express();
 
@@ -12,8 +11,6 @@ app.use(cors())
 app.use(morgan('dev'));
 app.use(json());
 app.use(urlencoded({extended: true}));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
 app.use(customMiddleware)
 
 app.use('/api/v1/auth', authRouter);
