@@ -1,0 +1,26 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es2021": true
+  },
+  "extends": ["xo", "prettier"],
+  "overrides": [
+    {
+      "extends": ["xo-typescript"],
+      "files": ["*.ts", "*.tsx"]
+    }
+  ],
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "rules": {
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/consistent-type-definitions": ["error", "type"],
+    "brace-style": ["warn", "stroustrup"],
+    "comma-dangle": ["error", "never"],
+    "no-unused-vars": "warn",
+    "no-var": "off",
+    "one-var": "off"
+  }
+}
