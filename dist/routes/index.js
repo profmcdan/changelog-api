@@ -11,11 +11,11 @@ var __createBinding = (this && this.__createBinding) || (Object.create ? (functi
     o[k2] = m[k];
 }));
 exports.__esModule = true;
-exports.userRouter = exports.updateRouter = exports.productRouter = void 0;
+exports.updateRouter = exports.productRouter = exports.userRouter = void 0;
+var user_route_1 = require("./user.route");
+__createBinding(exports, user_route_1, "default", "userRouter");
 var product_route_1 = require("./product.route");
 __createBinding(exports, product_route_1, "default", "productRouter");
 var update_route_1 = require("./update.route");
 __createBinding(exports, update_route_1, "default", "updateRouter");
-var user_route_1 = require("./user.route");
-__createBinding(exports, user_route_1, "default", "userRouter");
 //# sourceMappingURL=index.js.map
