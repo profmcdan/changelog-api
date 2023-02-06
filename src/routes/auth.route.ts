@@ -1,6 +1,6 @@
 import {Router} from "express";
 import {protectRoute} from "../modules/auth";
-import {createUser, signIn} from "../services/user.service";
+import {createUser, signIn} from "../controllers/user.controller";
 
 const authRouter = Router();
 

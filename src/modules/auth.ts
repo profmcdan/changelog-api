@@ -8,11 +8,11 @@ export const createJwt = (user) => {
 }
 
 export const hashPassword = async (password) => {
-    return await bcrypt.hash(password, 5);
+    return bcrypt.hash(password, 5);
 }
 
 export const comparePassword = async (password, hashedPassword) => {
-    return comparePassword(password, hashedPassword)
+    return bcrypt.compare(password, hashedPassword)
 }
 
 export const protectRoute = (req, res, next) => {

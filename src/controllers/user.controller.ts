@@ -20,8 +20,6 @@ export const signIn = async (req, res) => {
         }
     });
 
-    console.log(user);
-
     if(user !== null){
         const isValid = await comparePassword(req.body.password, user.password);
         if(isValid){
@@ -29,6 +27,5 @@ export const signIn = async (req, res) => {
             return;
         }
     }
-    res.status(401)
-    res.send({success: true, detail: 'Invalid username or password'});
+    res.status(401).send({success: true, detail: 'Invalid username or password'});
 }

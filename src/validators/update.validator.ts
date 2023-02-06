@@ -4,16 +4,18 @@ export const updateCreateValidator = [
     body('title').isString().withMessage('title is required'),
     body('body').isString().withMessage('body is required'),
     body('productId').isString().withMessage('productId is required'),
-    body('status').optional,
-    body('version').optional
+    body('status').isIn(['IN_PROGRESS', 'SHIPPED', 'DEPRECATED']),
+    body('status').optional().isString(),
+    body('version').optional().isString()
 ]
 
 export const updateUpdateValidator = [
-    body('title').isString().optional,
-    body('body').isString().optional,
-    body('productId').isString().optional,
-    body('status').optional,
-    body('version').optional
+    body('title').optional().isString(),
+    body('body').optional().isString(),
+    body('productId').optional().isString(),
+    body('status').optional().isString(),
+    body('status').optional().isString().isIn(['IN_PROGRESS', 'SHIPPED', 'DEPRECATED']),
+    body('version').optional().isString()
 ]
 
 export const updatePointCreateValidator = [
@@ -23,7 +25,7 @@ export const updatePointCreateValidator = [
 ]
 
 export const updatePointUpdateValidator = [
-    body('name').isString().optional,
-    body('description').isString().optional,
-    body('updateId').isString().optional,
+    body('name').optional(),
+    body('description').optional(),
+    body('updateId').optional(),
 ]
