@@ -1,0 +1,9 @@
+openapi: 3.0.3
+info:
+  title: Auth
+  description: Auth
+  version: 1.0.0
+servers:
+  - url: 'http://localhost:5001'
+paths:
+

@@ -6,28 +6,27 @@ import {
     updateUpdateValidator
 } from "../validators/update.validator";
 import {protectRoute} from "../modules/auth";
+import {
+    createUpdate,
+    deleteUpdate,
+    getOneUpdate,
+    getUpdates,
+    updateUpdate } from '../controllers/update.controller'
 
 const updateRouter = Router();
 
-updateRouter.get('/', (req, res) => {
-    res.send({success: true, data: []});
-});
+updateRouter.get('/', protectRoute, getUpdates);
 
-updateRouter.get('/:id', (req, res) => {
-    res.send({success: true, data: []});
-});
+updateRouter.get('/:id', protectRoute, getOneUpdate);
 
-updateRouter.post('/',  protectRoute, updateCreateValidator, (req, res) => {
-    res.status(201).send({success: true, data: []});
-});
+updateRouter.post('/',  protectRoute, updateCreateValidator,
+  createUpdate);
 
-updateRouter.put('/:id', protectRoute, updateUpdateValidator,  (req, res) => {
-    res.send({success: true, data: []});
-});
+updateRouter.put('/:id', protectRoute, updateUpdateValidator,
+  updateUpdate);
 
-updateRouter.delete('/:id', (req, res) => {
-    res.send({success: true, data: []});
-});
+updateRouter.delete('/:id', protectRoute, deleteUpdate);
+
 
 /**
  * Update Points
