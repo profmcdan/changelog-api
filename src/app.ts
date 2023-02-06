@@ -26,4 +26,14 @@ app.all('*', (req, res) => {
   res.status(404).json({ message: `Route ${req.originalUrl} not found` });
 });
 
+app.use((err, res, req, next) => {
+  if(err.type === 'auth'){
+    res.status(401).send({success: false, detail: 'Unauthorized'})
+  }else if (err.type === 'input'){
+    res.status(400).send({success: false, error: 'input errors'})
+  }else{
+    res.status(500).send({success: false, error: err.toString()})
+  }
+})
+
 export default app;
