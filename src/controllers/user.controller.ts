@@ -39,6 +39,6 @@ export const getLoggedInUser = async (req, res) => {
     },
   });
 
-  delete user.password
+  delete user.password;
   res.send({ success: true, data: { user } });
 };

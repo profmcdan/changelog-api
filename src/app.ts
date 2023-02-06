@@ -27,13 +27,13 @@ app.all('*', (req, res) => {
 });
 
 app.use((err, res, req, next) => {
-  if(err.type === 'auth'){
-    res.status(401).send({success: false, detail: 'Unauthorized'})
-  }else if (err.type === 'input'){
-    res.status(400).send({success: false, error: 'input errors'})
-  }else{
-    res.status(500).send({success: false, error: err.toString()})
+  if (err.type === 'auth') {
+    res.status(401).send({ success: false, detail: 'Unauthorized' });
+  } else if (err.type === 'input') {
+    res.status(400).send({ success: false, error: 'input errors' });
+  } else {
+    res.status(500).send({ success: false, error: err.toString() });
   }
-})
+});
 
 export default app;
