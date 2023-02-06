@@ -29,3 +29,14 @@ export const signIn = async (req, res) => {
     }
     res.status(401).send({success: true, detail: 'Invalid username or password'});
 }
+
+
+export const getLoggedInUser = async (req, res) => {
+  const user = await prisma.user.findUnique({
+    where: {
+      id: req.user.id
+    }
+  })
+
+  res.send({success: true, data: {user}});
+};

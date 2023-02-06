@@ -1,4 +1,3 @@
-import { body, validationResult } from "express-validator";
 import {Router} from "express";
 import {protectRoute} from "../modules/auth";
 import {newProductValidator} from "../validators/product.validator";
